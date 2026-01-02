@@ -1,34 +1,118 @@
-# Welcome to the Engine Room
+# Gas Town Interactive Tutorial
 
-Your guided journey through Gas Town.
+**This is YOUR guide for running an interactive tutorial. Not a document for users.**
 
-## How This Works
+## How to Run This Tutorial
+
+You lead the user through Gas Town step by step. Each section tells you:
+- **SHOW**: What to display to the user
+- **DO**: What commands to run (you run them)
+- **ASK**: What AskUserQuestion to call next
+
+### Golden Rules
+
+1. **One thing at a time** - Don't overwhelm. Teach, confirm, move on.
+2. **Actually do it** - Run real commands. Don't just explain.
+3. **Always ask what's next** - Use AskUserQuestion between every section.
+4. **Celebrate wins** - Use milestone boxes after each stage.
+5. **Adapt** - If user wants to skip or explore, go with them.
+6. **Visual first** - Lead with diagrams, follow with explanation.
+
+### Tutorial Stages
 
 ```
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                                                                           ║
-║   You talk.                          I operate.                           ║
-║                                                                           ║
-║   "set up gastown"          ──▶      *installs tools*                     ║
-║   "add my project"          ──▶      *creates rig*                        ║
-║   "sling that bug"          ──▶      *spawns polecat*                     ║
-║                                                                           ║
-║   You never type commands. You never touch the terminal.                  ║
-║   Just tell me what you want. I make it happen.                           ║
-║                                                                           ║
-╚═══════════════════════════════════════════════════════════════════════════╝
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         THE JOURNEY MAP                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STAGE 1: FOUNDATION          Your first engine                            │
+│  ════════════════════                                                       │
+│  1.1 The Secret               SLING → HOOK → GUPP                          │
+│  1.2 Installation             Get the tools                                │
+│  1.3 Your First Rig           Hook up a project                            │
+│  1.4 Your First Bead          Create work to track                         │
+│  1.5 Your First Sling         Watch a polecat work                         │
+│  🏆 MILESTONE: Engine Running!                                              │
+│                                                                             │
+│  STAGE 2: FLOW                Work moves through                           │
+│  ═════════════════                                                          │
+│  2.1 Meet the Cast            All the characters                           │
+│  2.2 Convoys                  Batch your work                              │
+│  2.3 Watching Workers         Peek, nudge, recover                         │
+│  2.4 The Merge Pipeline       Refinery flow                                │
+│  2.5 Mail & Communication     Inter-agent messaging                        │
+│  🏆 MILESTONE: Work Flows!                                                  │
+│                                                                             │
+│  STAGE 3: MASTERY             Full control                                 │
+│  ════════════════════                                                       │
+│  3.1 Polecats vs Crew         When to use each                             │
+│  3.2 Multi-Rig Work           Cross-project coordination                   │
+│  3.3 Molecules                Multi-step workflows                         │
+│  3.4 Escalation               When to ask for help                         │
+│  3.5 Troubleshooting          gt doctor and recovery                       │
+│  🏆 MILESTONE: Master Operator!                                             │
+│                                                                             │
+│  STAGE 4: EXPERT              Deep internals                               │
+│  ═══════════════════                                                        │
+│  4.1 Advanced Molecules       Pour, wisp, squash                           │
+│  4.2 The Deacon               Infrastructure daemon                        │
+│  4.3 Dogs                     Deacon's helpers                             │
+│  4.4 Seance                   Talk to predecessors                         │
+│  4.5 Custom Workflows         Build your own formulas                      │
+│  🏆 MILESTONE: You ARE Gas Town.                                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## The Core Idea
+## Starting the Tutorial
 
-Gas Town runs on one principle. Learn this, and you understand everything:
+When user chooses tutorial, start here:
 
+### SHOW:
+```
+Let's learn Gas Town together! ⛽
+
+I'll guide you through building your own AI-powered software factory.
+We'll go step by step - I'll do the work, you'll see it happen.
+
+By the end, you'll have:
+✓ A working Gas Town installation
+✓ A project hooked up
+✓ Work being tracked
+✓ AI workers building for you
+
+The journey has 4 stages. We'll start with the fundamentals.
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Ready to begin?",
+    "header": "Start",
+    "multiSelect": false,
+    "options": [
+      {"label": "Let's go!", "description": "Start from the beginning"},
+      {"label": "I have Gas Town installed", "description": "Skip to adding a project"},
+      {"label": "Show me what's possible first", "description": "Preview the capabilities"}
+    ]
+  }]
+}
+```
+
+---
+
+# STAGE 1: FOUNDATION
+
+## 1.1 The Secret
+
+### SHOW:
 ```
 ╔═══════════════════════════════════════════════════════════════════════════╗
-║                                                                           ║
 ║                              THE SECRET                                   ║
+╠═══════════════════════════════════════════════════════════════════════════╣
 ║                                                                           ║
 ║     YOU: "Fix the login bug"                                              ║
 ║           │                                                               ║
@@ -50,450 +134,951 @@ Gas Town runs on one principle. Learn this, and you understand everything:
 ║                                                                           ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
-    SLING = toss work to a worker
-    HOOK  = where work hangs for that worker
-    GUPP  = "If there's work on my hook, I run it" (keeps the engine moving)
+That's the whole system:
+
+  SLING = toss work to a worker
+  HOOK  = where work hangs
+  GUPP  = "If there's work on my hook, I run it"
+
+You sling. Work hooks. Workers run. The engine never stops.
 ```
 
-That's it. You sling. Work hooks. Workers run. The engine never stops.
-
----
-
-## The Full Picture
-
-Here's the whole factory. Don't memorize it - we'll meet each piece.
-
-```
-                              👤 YOU (Overseer)
-                                    │
-                                    │ SLING work
-                                    ▼
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                         YOUR TOWN ~/gt                        ║
-    ╠═══════════════════════════════════════════════════════════════╣
-    ║                                                               ║
-    ║   🦊 Mayor (your assistant, coordinates everything)           ║
-    ║         │                                                     ║
-    ║         ▼                                                     ║
-    ║   ╔═══════════════╗  ╔═══════════════╗                        ║
-    ║   ║    Rig A      ║  ║    Rig B      ║  (projects)            ║
-    ║   ╠═══════════════╣  ╠═══════════════╣                        ║
-    ║   ║ 🦅 Witness    ║  ║ 🦅 Witness    ║  (watches workers)     ║
-    ║   ║      │        ║  ║      │        ║                        ║
-    ║   ║      ▼        ║  ║      ▼        ║                        ║
-    ║   ║ 🦨 Polecats   ║  ║ 🦨 Polecats   ║  (do the work)         ║
-    ║   ║   [hooks]     ║  ║   [hooks]     ║                        ║
-    ║   ║      │        ║  ║      │        ║                        ║
-    ║   ║      ▼        ║  ║      ▼        ║                        ║
-    ║   ║ 🦡 Refinery   ║  ║ 🦡 Refinery   ║  (merges to main)      ║
-    ║   ╚═══════════════╝  ╚═══════════════╝                        ║
-    ║                                                               ║
-    ║   ⚙️ Deacon (keeps everything running)                        ║
-    ╚═══════════════════════════════════════════════════════════════╝
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Got it? Ready to install?",
+    "header": "Next",
+    "multiSelect": false,
+    "options": [
+      {"label": "Yes, install!", "description": "Let's get the tools"},
+      {"label": "Tell me more", "description": "Explain SLING, HOOK, GUPP more"},
+      {"label": "What's a polecat?", "description": "Explain the workers first"}
+    ]
+  }]
+}
 ```
 
 ---
 
-## Lesson 1: Your Town
+## 1.2 Installation
 
+### SHOW:
 ```
-    ╔═══════════════════════════════════════╗
-    ║           YOUR TOWN                   ║
-    ║                                       ║
-    ║   ~/gt/                               ║
-    ║   ├── 🦊 mayor/     (coordinator)     ║
-    ║   ├── ⚙️  deacon/    (infrastructure) ║
-    ║   └── 📁 (projects go here)           ║
-    ║                                       ║
-    ║   This is home base.                  ║
-    ╚═══════════════════════════════════════╝
-```
+Time to install Gas Town! ⚙️
 
-**One sentence:** Your Town is where everything lives - your projects, your workers, your work.
+Here's what we need:
+┌──────────────────────────────────────────┐
+│  gt   - Gas Town CLI (runs the engine)   │
+│  bd   - Beads (tracks work)              │
+└──────────────────────────────────────────┘
 
-**Try it:** Say "set up gastown" or "install gastown"
-
-I'll install the tools and create your workshop. You'll choose ⚡ Auto or ✋ Approve mode.
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 1 Complete                  ║
-║    You have a Town!                   ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 2: Your First Rig
-
-```
-    ╔═══════════════════════════════════════════════════╗
-    ║                    RIG                            ║
-    ║         (a container for one project)             ║
-    ╠═══════════════════════════════════════════════════╣
-    ║                                                   ║
-    ║   ~/gt/myproject/                                 ║
-    ║   │                                               ║
-    ║   ├── 🦅 witness/      watches workers            ║
-    ║   ├── 🦡 refinery/     merges code                ║
-    ║   ├── 👷 crew/         your persistent helpers    ║
-    ║   └── 🦨 polecats/     quick workers spawn here   ║
-    ║                                                   ║
-    ║   Each project gets its own rig.                  ║
-    ║   Each rig gets its own team.                     ║
-    ║                                                   ║
-    ╚═══════════════════════════════════════════════════╝
+I'll check your system first, then install.
 ```
 
-**One sentence:** A Rig is a project container with its own workers.
-
-**Try it:** Give me a GitHub URL:
-- "add myproject from https://github.com/you/repo"
-- "hook up my repo"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 2 Complete                  ║
-║    You have a Rig!                    ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 3: Work Lives in Beads
-
-```
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                                                               ║
-    ║                         BEADS                                 ║
-    ║                  (git-backed work tracker)                    ║
-    ║                                                               ║
-    ╠═══════════════════════════════════════════════════════════════╣
-    ║                                                               ║
-    ║   Every piece of work gets an ID:                             ║
-    ║                                                               ║
-    ║       mp-123  ──▶  "Fix login bug"                            ║
-    ║       mp-124  ──▶  "Add dark mode"                            ║
-    ║       mp-125  ──▶  "Update docs"                              ║
-    ║                                                               ║
-    ║   Why beads?                                                  ║
-    ║   • Work survives crashes (it's in git)                       ║
-    ║   • Any worker can pick it up                                 ║
-    ║   • Easy to track across projects                             ║
-    ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
+### DO:
+1. Check prerequisites:
+```bash
+go version
+git --version
 ```
 
-**One sentence:** Beads are work items that survive even if workers crash.
+2. If Go missing, help install it first.
 
-**Try it:**
-- "create an issue: Fix the login bug"
-- "what work is open?"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 3 Complete                  ║
-║    Work is tracked!                   ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 4: The Heart of the Engine - SLING
-
-```
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                                                               ║
-    ║                      SLINGING WORK                            ║
-    ║                                                               ║
-    ╠═══════════════════════════════════════════════════════════════╣
-    ║                                                               ║
-    ║        mp-123                                                 ║
-    ║     "Fix login bug"                                           ║
-    ║           │                                                   ║
-    ║           │  SLING!                                           ║
-    ║           ▼                                                   ║
-    ║   ╔═══════════════╗                                           ║
-    ║   ║   myproject   ║                                           ║
-    ║   ╠═══════════════╣                                           ║
-    ║   ║   polecats/   ║                                           ║
-    ║   ║      │        ║                                           ║
-    ║   ║      ▼        ║                                           ║
-    ║   ║   🦨 Toast    ║  ◀── Polecat spawns!                      ║
-    ║   ║   ┌───────┐   ║                                           ║
-    ║   ║   │ HOOK  │   ║  ◀── Work lands on hook                   ║
-    ║   ║   │mp-123 │   ║                                           ║
-    ║   ║   └───────┘   ║                                           ║
-    ║   ╚═══════════════╝                                           ║
-    ║                                                               ║
-    ║   The moment work hits the hook, the polecat RUNS.            ║
-    ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
+3. Install the tools:
+```bash
+go install github.com/steveyegge/gastown/cmd/gt@latest
+go install github.com/steveyegge/beads/cmd/bd@latest
 ```
 
-**One sentence:** Sling = toss work to a worker. They start immediately.
-
-**The Golden Rule (GUPP):**
-```
-╔═════════════════════════════════════════════════════╗
-║                                                     ║
-║   If there's work on your hook, YOU RUN IT.         ║
-║                                                     ║
-╚═════════════════════════════════════════════════════╝
+4. Verify:
+```bash
+gt version
+bd version
 ```
 
-**Try it:**
-- "sling mp-123 to myproject"
-- "have a polecat work on the login bug"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 4 Complete                  ║
-║    Work is flowing!                   ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 5: Meet the Characters
-
-### 🦨 Polecats (Quick Workers)
-
-```
-    POLECAT LIFECYCLE
-    ═════════════════
-
-    Sling ──▶ Spawn ──▶ Work ──▶ Done ──▶ Vanish
-               │         │        │
-           worktree    runs    Witness
-           created    hook     cleans up
+5. Initialize workspace:
+```bash
+gt install ~/gt
 ```
 
-**Polecats are temporary.** They do one task and disappear.
-
----
-
-### 👷 Crew (Persistent Workers)
-
-```
-    CREW LIFECYCLE
-    ══════════════
-
-    Create ──▶ Work ──▶ Work ──▶ Work ──▶ (stays forever)
-               │         │        │
-           you ask    you ask   you ask
-```
-
-**Crew sticks around.** For long-running or exploratory work.
-
----
-
-### Quick Comparison
-
-```
-╔══════════════════════════════════════════════════════════╗
-║                  POLECAT vs CREW                         ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║   🦨 POLECAT              │   👷 CREW                    ║
-║   ────────────────────────│───────────────────────────   ║
-║   One task                │   Many tasks                 ║
-║   Auto-cleanup            │   You control                ║
-║   Witness manages         │   You manage                 ║
-║   "sling work to rig"     │   "add crew member joe"      ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-```
-
-**Try it:**
-- "list the polecats"
-- "how's Toast doing?"
-- "add a crew member named joe"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 5 Complete                  ║
-║    You know the workers!              ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 6: The Watchers
-
-### 🦅 The Witness
-
-```
-                    🦅 WITNESS
-                   (one per rig)
-                        │
-            ┌───────────┼───────────┐
-            │           │           │
-            ▼           ▼           ▼
-        🦨 Toast    🦨 Nux    🦨 Furiosa
-          (ok)     (stuck!)    (done)
-                      │           │
-                    NUDGE      CLEANUP
-```
-
-**The Witness watches all polecats.** Nudges stuck ones. Cleans up finished ones.
-
----
-
-### 🦡 The Refinery
-
-```
-    THE MERGE FLOW
-    ══════════════
-
-    Polecat  ──▶  Witness  ──▶  Refinery  ──▶  Main Branch
-      │            │              │
-    "done!"     verifies       reviews
-               & sends        & merges
-```
-
-**The Refinery merges completed work.** Quality control before code hits main.
-
-**Try it:**
-- "how's the witness doing?"
-- "what's in the merge queue?"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 6 Complete                  ║
-║    You know the watchers!             ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 7: Town Leadership
-
-### 🦊 The Mayor
-
-```
-                        🦊 MAYOR
-                     (town level)
-                          │
-              ┌───────────┼───────────┐
-              │           │           │
-              ▼           ▼           ▼
-          Rig A       Rig B       Rig C
-```
-
-**The Mayor sees everything.** Coordinates work across all rigs.
-
----
-
-### ⚙️ The Deacon
-
-```
-    ╔═══════════════════════════════════════╗
-    ║            ⚙️ DEACON                   ║
-    ║      (background infrastructure)      ║
-    ╠═══════════════════════════════════════╣
-    ║                                       ║
-    ║   • Starts and stops agents           ║
-    ║   • Health monitoring                 ║
-    ║   • Runs in background                ║
-    ║                                       ║
-    ║   You rarely interact directly.       ║
-    ║   Just keeps the engine running.      ║
-    ║                                       ║
-    ╚═══════════════════════════════════════╝
-```
-
-**Try it:**
-- "fire up the engine"
-- "check the status"
-- "shut it down"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 7 Complete                  ║
-║    You've met everyone!               ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 8: Convoys (Tracking Batches)
-
-```
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                                                               ║
-    ║                         CONVOY                                ║
-    ║              (a batch of related work)                        ║
-    ║                                                               ║
-    ╠═══════════════════════════════════════════════════════════════╣
-    ║                                                               ║
-    ║          Convoy: "User Auth Feature"                          ║
-    ║                       │                                       ║
-    ║         ┌─────────────┼─────────────┐                         ║
-    ║         │             │             │                         ║
-    ║         ▼             ▼             ▼                         ║
-    ║     mp-123        mp-124        mp-125                        ║
-    ║    "login"       "signup"      "logout"                       ║
-    ║       ✓             ⏳            ○                           ║
-    ║     done       in progress     pending                        ║
-    ║                                                               ║
-    ║   Convoys give you a dashboard view of related work.          ║
-    ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
-```
-
-**One sentence:** Convoys group related work so you can track it together.
-
-**Try it:**
-- "create a convoy for the auth feature"
-- "show me my convoys"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 8 Complete                  ║
-║    You can track batches!             ║
-╚═══════════════════════════════════════╝
-
----
-
-## Lesson 9: When Things Break
-
-```
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║                                                               ║
-    ║                    DIAGNOSTICS                                ║
-    ║                                                               ║
-    ╠═══════════════════════════════════════════════════════════════╣
-    ║                                                               ║
-    ║   You say:              I do:                                 ║
-    ║   ─────────────────────────────────────────────               ║
-    ║   "something's broken"  run gt doctor, interpret, fix         ║
-    ║   "polecat stuck"       peek at it, nudge it, recover         ║
-    ║   "health check"        full diagnostics, report status       ║
-    ║                                                               ║
-    ║   You never see raw errors. I handle diagnostics.             ║
-    ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
-```
-
-**Try it:**
-- "run a health check"
-- "something's broken, fix it"
-
-╔═══════════════════════════════════════╗
-║  ✓ Lesson 9 Complete                  ║
-║    You can troubleshoot!              ║
-╚═══════════════════════════════════════╝
-
----
-
-## You're Ready!
-
+### SHOW (after success):
 ```
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                                                                           ║
-║                        🎉 TUTORIAL COMPLETE 🎉                            ║
+║  ✓ INSTALLED!                                                             ║
+║                                                                           ║
+║  Your workshop is ready at ~/gt                                           ║
+║                                                                           ║
+║  ~/gt/                                                                    ║
+║  ├── mayor/         (coordinator)                                         ║
+║  └── .beads/        (work tracker)                                        ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Installed! Now let's hook up a project. Do you have a GitHub repo?",
+    "header": "Project",
+    "multiSelect": false,
+    "options": [
+      {"label": "Yes, I have a repo", "description": "I'll give you the URL"},
+      {"label": "Create a test repo", "description": "Make a playground to learn with"},
+      {"label": "Use an example repo", "description": "I'll provide one for practice"}
+    ]
+  }]
+}
+```
+
+---
+
+## 1.3 Your First Rig
+
+### SHOW:
+```
+A RIG is a project container. Think of it as a workshop bay for one project.
+
+    ╔═══════════════════════════════════════╗
+    ║              YOUR RIG                 ║
+    ╠═══════════════════════════════════════╣
+    ║                                       ║
+    ║  ~/gt/myproject/                      ║
+    ║  ├── 🦅 witness/    (watches workers) ║
+    ║  ├── 🦡 refinery/   (merges code)     ║
+    ║  ├── 👷 crew/       (your helpers)    ║
+    ║  └── 🦨 polecats/   (quick workers)   ║
+    ║                                       ║
+    ║  Each rig gets its own team.          ║
+    ║                                       ║
+    ╚═══════════════════════════════════════╝
+```
+
+### DO:
+When user provides a GitHub URL:
+```bash
+gt rig add <name> <github-url>
+```
+
+Verify:
+```bash
+gt rig list
+gt status
+```
+
+### SHOW (after success):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✓ RIG CREATED!                                                           ║
+║                                                                           ║
+║  Project: <name>                                                          ║
+║  Location: ~/gt/<name>/                                                   ║
+║                                                                           ║
+║  The team is assembled:                                                   ║
+║  • Witness ready to watch workers                                         ║
+║  • Refinery ready to merge code                                           ║
+║  • Polecats bay ready for workers                                         ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Rig created! Ready to track some work?",
+    "header": "Next",
+    "multiSelect": false,
+    "options": [
+      {"label": "Create a bead", "description": "Track our first piece of work"},
+      {"label": "Fire up the engine first", "description": "Start the infrastructure"},
+      {"label": "What's a bead?", "description": "Explain work tracking"}
+    ]
+  }]
+}
+```
+
+---
+
+## 1.4 Your First Bead
+
+### SHOW:
+```
+BEADS are work items. Like issues, but they survive crashes.
+
+    ┌─────────────────────────────────────────────────────────┐
+    │                                                         │
+    │   Every piece of work gets an ID:                       │
+    │                                                         │
+    │       mp-001  ──▶  "Fix login bug"                      │
+    │       mp-002  ──▶  "Add dark mode"                      │
+    │       mp-003  ──▶  "Update docs"                        │
+    │                                                         │
+    │   Beads are stored in git. If a worker crashes,         │
+    │   the work survives. Another worker can pick it up.     │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+
+Let's create your first bead!
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "What work should we track? (I'll create it for you)",
+    "header": "Work",
+    "multiSelect": false,
+    "options": [
+      {"label": "Fix a bug", "description": "I'll create 'Fix the login bug'"},
+      {"label": "Add a feature", "description": "I'll create 'Add dark mode'"},
+      {"label": "I'll describe it", "description": "Tell me what to create"}
+    ]
+  }]
+}
+```
+
+### DO:
+```bash
+cd ~/gt/<rig>/mayor/rig
+bd create --title "<title>"
+bd list
+```
+
+### SHOW (after success):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✓ BEAD CREATED!                                                          ║
+║                                                                           ║
+║  ID: <prefix>-<id>                                                        ║
+║  Title: <title>                                                           ║
+║  Status: open                                                             ║
+║                                                                           ║
+║  This work is now tracked. Even if everything crashes,                    ║
+║  this bead survives in git.                                               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Now for the magic - let's sling this work to a polecat!",
+    "header": "Sling",
+    "multiSelect": false,
+    "options": [
+      {"label": "Sling it!", "description": "Toss this work to a worker"},
+      {"label": "What happens when I sling?", "description": "Explain the flow first"}
+    ]
+  }]
+}
+```
+
+---
+
+## 1.5 Your First Sling
+
+### SHOW:
+```
+This is the magic moment. Watch what happens:
+
+    YOU: "sling <bead> to <rig>"
+          │
+          ▼
+    ┌─────────────────────────────────────────────────────────┐
+    │                                                         │
+    │  1. A POLECAT spawns (new AI worker)                    │
+    │  2. Work lands on its HOOK                              │
+    │  3. GUPP kicks in: "Work on hook? RUN IT."              │
+    │  4. Polecat starts working IMMEDIATELY                  │
+    │                                                         │
+    │  The Witness watches. If it gets stuck, I'll know.      │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+```
+
+### DO:
+First, start the infrastructure:
+```bash
+gt up
+```
+
+Then sling:
+```bash
+gt sling <bead-id> <rig>
+```
+
+Check status:
+```bash
+gt polecat list
+gt status
+```
+
+### SHOW (after success):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✓ WORK SLUNG!                                                            ║
+║                                                                           ║
+║  A polecat named "<name>" spawned.                                        ║
+║  Work is on their hook. They're working NOW.                              ║
+║                                                                           ║
+║  🦅 The Witness is watching.                                              ║
+║  🦡 The Refinery is ready to merge when done.                             ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### SHOW (Stage 1 Complete):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    🏆 STAGE 1 COMPLETE: FOUNDATION 🏆                     ║
 ║                                                                           ║
 ╠═══════════════════════════════════════════════════════════════════════════╣
 ║                                                                           ║
-║   You now understand:                                                     ║
+║  You now have:                                                            ║
 ║                                                                           ║
-║   ⛽ Town        Your workshop at ~/gt                                    ║
-║   📦 Rigs        Project containers with teams                            ║
-║   📿 Beads       Work items that survive crashes                          ║
-║   🎯 Slinging    Tossing work to workers                                  ║
-║   🦨 Polecats    Quick workers (one task, vanish)                         ║
-║   👷 Crew        Persistent workers (stick around)                        ║
-║   🦅 Witness     Watches polecats                                         ║
-║   🦡 Refinery    Merges code                                              ║
-║   🦊 Mayor       Coordinates across rigs                                  ║
-║   ⚙️ Deacon      Background infrastructure                                ║
-║   🚚 Convoys     Batch tracking                                           ║
+║  ✓ Gas Town installed                                                     ║
+║  ✓ A rig (project) hooked up                                              ║
+║  ✓ Work being tracked in beads                                            ║
+║  ✓ A polecat working on your first task                                   ║
+║                                                                           ║
+║  You understand:                                                          ║
+║  • SLING = toss work to a worker                                          ║
+║  • HOOK = where work hangs                                                ║
+║  • GUPP = "If there's work on my hook, I run it"                          ║
+║                                                                           ║
+║  Your engine is RUNNING.                                                  ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━ ⛽ Gas Town | Learning ━━
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Stage 1 complete! What's next?",
+    "header": "Continue",
+    "multiSelect": false,
+    "options": [
+      {"label": "Stage 2: Flow", "description": "Learn how work moves through the system"},
+      {"label": "Practice more", "description": "Create another bead and sling it"},
+      {"label": "Check on my polecat", "description": "See how the work is going"},
+      {"label": "Take a break", "description": "We can continue anytime"}
+    ]
+  }]
+}
+```
+
+---
+
+# STAGE 2: FLOW
+
+## 2.1 Meet the Cast
+
+### SHOW:
+```
+Time to meet everyone in your factory!
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                           THE CAST                                        ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  👤 OVERSEER (You)                                                        ║
+║  └── The boss. Sets priorities. Reviews output.                           ║
+║                                                                           ║
+║  🦊 MAYOR (Town Level)                                                    ║
+║  └── Your assistant. Coordinates across all projects.                     ║
+║                                                                           ║
+║  ⚙️ DEACON (Background)                                                   ║
+║  └── Keeps the infrastructure running. You rarely interact.               ║
+║                                                                           ║
+║  ───── Per Rig ─────                                                      ║
+║                                                                           ║
+║  🦅 WITNESS                                                               ║
+║  └── Watches all polecats in this rig. Nudges stuck ones.                 ║
+║                                                                           ║
+║  🦡 REFINERY                                                              ║
+║  └── Merges completed work to main. Quality control.                      ║
+║                                                                           ║
+║  🦨 POLECATS                                                              ║
+║  └── Quick workers. Spawn, do one task, vanish.                           ║
+║                                                                           ║
+║  👷 CREW                                                                  ║
+║  └── Persistent helpers. Stick around for ongoing work.                   ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Want to learn more about any character?",
+    "header": "Learn",
+    "multiSelect": false,
+    "options": [
+      {"label": "The Witness", "description": "How does it watch workers?"},
+      {"label": "The Refinery", "description": "How does merging work?"},
+      {"label": "Polecats vs Crew", "description": "When to use each?"},
+      {"label": "Move on to Convoys", "description": "Learn batch work tracking"}
+    ]
+  }]
+}
+```
+
+---
+
+## 2.2 Convoys
+
+### SHOW:
+```
+When you have multiple related tasks, use a CONVOY.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                          CONVOY                                       ║
+    ║                   "User Auth Feature"                                 ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║         ┌─────────┬─────────┬─────────┐                               ║
+    ║         │ mp-001  │ mp-002  │ mp-003  │                               ║
+    ║         │ login   │ signup  │ logout  │                               ║
+    ║         │   ✓     │   ⏳    │   ○     │                               ║
+    ║         │ done    │ working │ pending │                               ║
+    ║         └────┬────┴────┬────┴────┬────┘                               ║
+    ║              │         │         │                                    ║
+    ║              ▼         ▼         ▼                                    ║
+    ║           🦨 nux   🦨 toast  (waiting)                                ║
+    ║                                                                       ║
+    ║   Convoy gives you a dashboard. When all close, you get notified.    ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+### DO:
+Show them how to create a convoy:
+```bash
+gt convoy create "My Feature" <bead-1> <bead-2>
+gt convoy list
+gt convoy status <convoy-id>
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Want to create a convoy for some work?",
+    "header": "Convoy",
+    "multiSelect": false,
+    "options": [
+      {"label": "Create a convoy", "description": "I'll help you batch some work"},
+      {"label": "See existing convoys", "description": "Check what's tracked"},
+      {"label": "Move on", "description": "Learn about watching workers"}
+    ]
+  }]
+}
+```
+
+---
+
+## 2.3 Watching Workers
+
+### SHOW:
+```
+Your workers are running. Here's how to check on them:
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                     WATCHING WORKERS                                  ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║  "how's toast doing?"   ──▶  gt peek <rig>/polecats/toast             ║
+    ║                              Shows what they're working on            ║
+    ║                                                                       ║
+    ║  "list the polecats"    ──▶  gt polecat list                          ║
+    ║                              All workers and their status             ║
+    ║                                                                       ║
+    ║  "polecat stuck"        ──▶  gt nudge <agent> "What's blocking?"      ║
+    ║                              Send a message to unstick them           ║
+    ║                                                                       ║
+    ║  "activity feed"        ──▶  gt feed                                  ║
+    ║                              Real-time stream of everything           ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+
+The Witness does most of this automatically. But you can check anytime.
+```
+
+### DO:
+Show them real status:
+```bash
+gt polecat list
+gt status
+gt feed --since 5m
+```
+
+---
+
+## 2.4 The Merge Pipeline
+
+### SHOW:
+```
+When a polecat finishes, here's what happens:
+
+    Polecat                    Witness                    Refinery
+       │                          │                          │
+       │ "I'm done!"              │                          │
+       │──────────────────────────▶│                          │
+       │                          │                          │
+       │                    (verifies work)                  │
+       │                          │                          │
+       │                          │ "Ready to merge"         │
+       │                          │──────────────────────────▶│
+       │                          │                          │
+       │                          │                    (runs tests)
+       │                          │                    (merges to main)
+       │                          │                          │
+       │                          │ "Merged!"                │
+       │                          │◀──────────────────────────│
+       │                          │                          │
+       │                    (cleans up polecat)              │
+       │                          │                          │
+
+You don't have to do anything. The pipeline runs automatically.
+```
+
+### DO:
+Show the merge queue:
+```bash
+gt refinery status
+gt mq list
+```
+
+---
+
+## 2.5 Mail & Communication
+
+### SHOW:
+```
+Agents communicate via mail. You can read it too!
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                         MAIL SYSTEM                                   ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║  "check my mail"        ──▶  gt mail inbox                            ║
+    ║                                                                       ║
+    ║  "send a message"       ──▶  gt mail send --to <agent>                ║
+    ║                              --subject "Hi" --body "..."              ║
+    ║                                                                       ║
+    ║  "broadcast to all"     ──▶  gt broadcast "Check your mail"           ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+
+Mail is how agents coordinate. Escalations, handoffs, and status updates
+all flow through mail.
+```
+
+### SHOW (Stage 2 Complete):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    🏆 STAGE 2 COMPLETE: FLOW 🏆                           ║
+║                                                                           ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  You now understand:                                                      ║
+║                                                                           ║
+║  ✓ All the characters and their roles                                     ║
+║  ✓ Convoys for batch work tracking                                        ║
+║  ✓ How to watch and nudge workers                                         ║
+║  ✓ The merge pipeline                                                     ║
+║  ✓ The mail system                                                        ║
+║                                                                           ║
+║  Work flows through your engine like fuel through pipes.                  ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━ ⛽ Gas Town | Learning ━━
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "Stage 2 complete! Ready for mastery?",
+    "header": "Continue",
+    "multiSelect": false,
+    "options": [
+      {"label": "Stage 3: Mastery", "description": "Full control of your factory"},
+      {"label": "Practice what I learned", "description": "Create convoys, check workers"},
+      {"label": "Take a break", "description": "We can continue anytime"}
+    ]
+  }]
+}
+```
+
+---
+
+# STAGE 3: MASTERY
+
+## 3.1 Polecats vs Crew
+
+### SHOW:
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                       POLECATS vs CREW                                    ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║   🦨 POLECATS                    │   👷 CREW                              ║
+║   ───────────────────────────────│───────────────────────────────────     ║
+║   One task, then vanish          │   Stick around forever                 ║
+║   Witness manages them           │   You manage them                      ║
+║   Auto-cleanup                   │   Manual cleanup                       ║
+║   Work on feature branches       │   Work on main (usually)               ║
+║   Refinery merges their work     │   Push directly                        ║
+║                                  │                                        ║
+║   USE FOR:                       │   USE FOR:                             ║
+║   • Bug fixes                    │   • Exploratory work                   ║
+║   • Small features               │   • Long projects                      ║
+║   • Batch tasks                  │   • Interactive sessions               ║
+║   • Parallel work                │   • Ongoing assistance                 ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+### DO:
+Show them how to create crew:
+```bash
+gt crew add joe
+gt crew list
+gt crew at joe    # Attach to crew session
+```
+
+---
+
+## 3.2 Multi-Rig Work
+
+### SHOW:
+```
+When you have multiple projects, workers can cross rigs.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                      MULTI-RIG WORK                                   ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║  Joe from project-a needs to fix a bug in project-b:                  ║
+    ║                                                                       ║
+    ║     ~/gt/project-a/crew/joe/     (Joe's home)                         ║
+    ║                │                                                      ║
+    ║                │  gt worktree project-b                               ║
+    ║                ▼                                                      ║
+    ║     ~/gt/project-b/crew/project-a-joe/  (Joe working on project-b)    ║
+    ║                                                                       ║
+    ║  Identity preserved! Work credits still go to project-a/crew/joe      ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 3.3 Molecules
+
+### SHOW:
+```
+For multi-step work, use MOLECULES (workflows).
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                        MOLECULE                                       ║
+    ║                    "Feature Implementation"                           ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   [✓] mp-001.1: Design                                                ║
+    ║   [✓] mp-001.2: Scaffold                                              ║
+    ║   [✓] mp-001.3: Implement                                             ║
+    ║   [→] mp-001.4: Write tests        ◀── YOU ARE HERE                   ║
+    ║   [ ] mp-001.5: Documentation                                         ║
+    ║   [ ] mp-001.6: Review                                                ║
+    ║                                                                       ║
+    ║   Progress: 3/6 steps                                                 ║
+    ║                                                                       ║
+    ║   bd mol current           # Where am I?                              ║
+    ║   bd close mp-001.4 --continue  # Complete and advance                ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+
+Molecules guide work through defined steps. Progress survives crashes.
+```
+
+---
+
+## 3.4 Escalation
+
+### SHOW:
+```
+When workers hit a blocker, they escalate.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                      ESCALATION TIERS                                 ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   Worker hits problem                                                 ║
+    ║         │                                                             ║
+    ║         ▼                                                             ║
+    ║   ╔═══════════╗                                                       ║
+    ║   ║  DEACON   ║  Can fix? → Done                                      ║
+    ║   ║  (Tier 1) ║  Can't? → Forward                                     ║
+    ║   ╚═════╤═════╝                                                       ║
+    ║         │                                                             ║
+    ║         ▼                                                             ║
+    ║   ╔═══════════╗                                                       ║
+    ║   ║   MAYOR   ║  Can fix? → Done                                      ║
+    ║   ║  (Tier 2) ║  Can't? → Forward                                     ║
+    ║   ╚═════╤═════╝                                                       ║
+    ║         │                                                             ║
+    ║         ▼                                                             ║
+    ║   ╔═══════════╗                                                       ║
+    ║   ║ OVERSEER  ║  You decide                                           ║
+    ║   ║  (Tier 3) ║  (That's you!)                                        ║
+    ║   ╚═══════════╝                                                       ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+
+Most issues resolve at Tier 1 or 2. You only see what truly needs you.
+```
+
+---
+
+## 3.5 Troubleshooting
+
+### SHOW:
+```
+When something breaks, I run diagnostics.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                      TROUBLESHOOTING                                  ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║  "something's broken"    ──▶  gt doctor                               ║
+    ║                               Checks everything, reports issues       ║
+    ║                                                                       ║
+    ║  "fix it"                ──▶  gt doctor --fix                         ║
+    ║                               Auto-repairs common issues              ║
+    ║                                                                       ║
+    ║  "health check"          ──▶  gt status                               ║
+    ║                               Quick overview of all systems           ║
+    ║                                                                       ║
+    ║  You never see raw errors. I diagnose and fix for you.                ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+### SHOW (Stage 3 Complete):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                   🏆 STAGE 3 COMPLETE: MASTERY 🏆                         ║
+║                                                                           ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  You now have full control:                                               ║
+║                                                                           ║
+║  ✓ When to use polecats vs crew                                           ║
+║  ✓ Cross-rig work coordination                                            ║
+║  ✓ Multi-step workflows with molecules                                    ║
+║  ✓ Escalation patterns                                                    ║
+║  ✓ Troubleshooting and recovery                                           ║
+║                                                                           ║
+║  You're a master operator.                                                ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━ ⛽ Gas Town | Learning ━━
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "You're a master! Want to go deeper?",
+    "header": "Continue",
+    "multiSelect": false,
+    "options": [
+      {"label": "Stage 4: Expert", "description": "Deep internals and advanced workflows"},
+      {"label": "I'm good for now", "description": "Start using what I learned"},
+      {"label": "Quick reference", "description": "Summary of commands"}
+    ]
+  }]
+}
+```
+
+---
+
+# STAGE 4: EXPERT
+
+## 4.1 Advanced Molecules
+
+### SHOW:
+```
+Molecules have phases, like states of matter.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                     MOLECULE PHASES                                   ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   FORMULA (Ice-9)        Source template (TOML file)                  ║
+    ║       │                                                               ║
+    ║       ▼ cook                                                          ║
+    ║   PROTOMOLECULE (Solid)  Frozen, ready to use                         ║
+    ║       │                                                               ║
+    ║       ├──▶ pour ──▶ MOL (Liquid)    Persistent workflow               ║
+    ║       │                             Tracked, survives crashes         ║
+    ║       │                                                               ║
+    ║       └──▶ wisp ──▶ WISP (Vapor)    Ephemeral workflow                ║
+    ║                                     For patrol cycles, no sync        ║
+    ║                                                                       ║
+    ║   squash ──▶ DIGEST                 Compressed summary                ║
+    ║   burn   ──▶ (gone)                 Discard without record            ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 4.2 The Deacon
+
+### SHOW:
+```
+The Deacon is the background daemon that keeps everything alive.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                        THE DEACON                                     ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   ⚙️ DEACON                                                           ║
+    ║      │                                                                ║
+    ║      ├── Spawns and kills agents                                      ║
+    ║      ├── Health monitoring                                            ║
+    ║      ├── Plugin execution                                             ║
+    ║      ├── Receives WITNESS_PING (second-order monitoring)              ║
+    ║      └── Handles Tier 1 escalations                                   ║
+    ║                                                                       ║
+    ║   You rarely interact with the Deacon directly.                       ║
+    ║   It just keeps the engine running.                                   ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 4.3 Dogs
+
+### SHOW:
+```
+Dogs are the Deacon's helpers for infrastructure tasks.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                          DOGS                                         ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   🐕 Dogs are NOT workers. They're infrastructure helpers.            ║
+    ║                                                                       ║
+    ║   BOOT dog: Checks Deacon health on every tick                        ║
+    ║                                                                       ║
+    ║   Future dogs might handle:                                           ║
+    ║   • Log rotation                                                      ║
+    ║   • Garbage collection                                                ║
+    ║   • Cross-rig cleanup                                                 ║
+    ║                                                                       ║
+    ║   gt dog list                  # See all dogs                         ║
+    ║   gt dog add alpha             # Create a dog                         ║
+    ║   gt dog call alpha            # Wake a dog for work                  ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 4.4 Seance
+
+### SHOW:
+```
+Talk to predecessor sessions - see what they did.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                         SEANCE                                        ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   gt seance                      # List recent sessions               ║
+    ║   gt seance --role crew          # Filter by role                     ║
+    ║   gt seance --talk <id>          # Talk to predecessor                ║
+    ║   gt seance --talk <id> -p "?"   # Ask one question                   ║
+    ║                                                                       ║
+    ║   Use cases:                                                          ║
+    ║   • "What did the last polecat do?"                                   ║
+    ║   • "Where did this work get left off?"                               ║
+    ║   • "Why was this decision made?"                                     ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 4.5 Custom Workflows
+
+### SHOW:
+```
+You can create your own formulas for repeated workflows.
+
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                    CUSTOM FORMULAS                                    ║
+    ╠═══════════════════════════════════════════════════════════════════════╣
+    ║                                                                       ║
+    ║   Formulas are TOML files that define workflow steps:                 ║
+    ║                                                                       ║
+    ║   [formula]                                                           ║
+    ║   name = "bug-fix"                                                    ║
+    ║   description = "Standard bug fix workflow"                           ║
+    ║                                                                       ║
+    ║   [[step]]                                                            ║
+    ║   name = "reproduce"                                                  ║
+    ║   prompt = "Reproduce the bug and document steps"                     ║
+    ║                                                                       ║
+    ║   [[step]]                                                            ║
+    ║   name = "fix"                                                        ║
+    ║   prompt = "Implement the fix"                                        ║
+    ║                                                                       ║
+    ║   [[step]]                                                            ║
+    ║   name = "test"                                                       ║
+    ║   prompt = "Write tests to prevent regression"                        ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════════════════════════════╝
+```
+
+### SHOW (Stage 4 Complete):
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    🏆 STAGE 4 COMPLETE: EXPERT 🏆                         ║
+║                                                                           ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  You understand the deep internals:                                       ║
+║                                                                           ║
+║  ✓ Molecule phases (formula → proto → mol/wisp → digest)                  ║
+║  ✓ The Deacon and infrastructure                                          ║
+║  ✓ Dogs as Deacon helpers                                                 ║
+║  ✓ Seance for predecessor sessions                                        ║
+║  ✓ Custom workflow formulas                                               ║
+║                                                                           ║
+║  You ARE Gas Town.                                                        ║
 ║                                                                           ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
@@ -504,33 +1089,98 @@ I'll install the tools and create your workshop. You'll choose ⚡ Auto or ✋ A
                     ║                                 ║
                     ╚═════════════════════════════════╝
 
-                The engine is yours. Fire it up and GO.
+            The Cognition Engine is yours. Fire it up and GO.
+
+━━ ⛽ Gas Town | Learning ━━
 ```
 
 ---
 
-## Quick Reference
+# Going Forward
 
-| You Say | What Happens |
-|---------|--------------|
-| "set up gastown" | Install tools, create workshop |
-| "add [project] from [url]" | Create a rig |
-| "create issue: [desc]" | Track work |
-| "sling [work] to [rig]" | Assign to polecat |
-| "how's [worker]?" | Check status |
-| "fire up the engine" | Start everything |
-| "shut it down" | Stop everything |
-| "something's broken" | Run diagnostics |
+After the tutorial, show this to reinforce the ongoing relationship:
+
+### SHOW:
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                         GOING FORWARD                                     ║
+║                                                                           ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  You now understand Gas Town. But nothing changes about how we work:      ║
+║                                                                           ║
+║                    YOU TALK.  I OPERATE.                                  ║
+║                                                                           ║
+║  Just tell me what you want:                                              ║
+║                                                                           ║
+║    "sling that bug to myproject"                                          ║
+║    "check on the polecats"                                                ║
+║    "create a convoy for the auth feature"                                 ║
+║    "how's toast doing?"                                                   ║
+║    "something's broken, fix it"                                           ║
+║                                                                           ║
+║  I'll run the commands, watch the workers, handle the errors.             ║
+║  You never touch the terminal. You just drive.                            ║
+║                                                                           ║
+║  The engine is yours. What shall we build?                                ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━ ⛽ Gas Town ━━
+```
+
+### ASK:
+```json
+{
+  "questions": [{
+    "question": "What would you like to do first?",
+    "header": "Go",
+    "multiSelect": false,
+    "options": [
+      {"label": "Check the status", "description": "See what's running"},
+      {"label": "Create some work", "description": "Track a new task"},
+      {"label": "Add another project", "description": "Hook up a new repo"},
+      {"label": "Just explore", "description": "I'll poke around"}
+    ]
+  }]
+}
+```
 
 ---
 
-## Teaching Notes (For Claude)
+# Quick Reference
 
-When guiding through this tutorial:
+Show this when user asks for a summary:
 
-1. **One lesson at a time** - Don't skip ahead
-2. **Wait for their prompt** - Let them say "next" or "continue"
-3. **Watch for overwhelm** - Pause if they seem lost
-4. **Celebrate milestones** - Use the completion boxes
-5. **Hands-on** - After each lesson, prompt them to try something
-6. **Adapt** - If they want to skip ahead, let them
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                      GAS TOWN QUICK REFERENCE                             ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                           ║
+║  CORE CONCEPT                                                             ║
+║  ───────────                                                              ║
+║  SLING work → lands on HOOK → GUPP: "If hook has work, RUN IT"            ║
+║                                                                           ║
+║  COMMANDS YOU ASK FOR          │  WHAT I RUN                              ║
+║  ──────────────────────────────│──────────────────────────────────        ║
+║  "fire up the engine"          │  gt up                                   ║
+║  "shut it down"                │  gt down                                 ║
+║  "check status"                │  gt status                               ║
+║  "add my project"              │  gt rig add <name> <url>                 ║
+║  "create work: <desc>"         │  bd create --title "<desc>"              ║
+║  "sling <work> to <rig>"       │  gt sling <bead> <rig>                   ║
+║  "list polecats"               │  gt polecat list                         ║
+║  "how's <worker>?"             │  gt peek <agent>                         ║
+║  "check my mail"               │  gt mail inbox                           ║
+║  "create convoy"               │  gt convoy create <name> <beads>         ║
+║  "add crew member <name>"      │  gt crew add <name>                      ║
+║  "something's broken"          │  gt doctor --fix                         ║
+║                                                                           ║
+║  CHARACTERS                                                               ║
+║  ──────────                                                               ║
+║  👤 Overseer (You)   🦊 Mayor   ⚙️ Deacon   🦅 Witness                    ║
+║  🦡 Refinery   🦨 Polecats   👷 Crew   🐕 Dogs                            ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
