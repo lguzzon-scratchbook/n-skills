@@ -121,6 +121,31 @@ $skill-installer https://github.com/numman-ali/n-skills/tree/main/skills/tools/z
 
 ---
 
+## 🎯 Want to be Featured?
+
+This is a **curated** marketplace. Anyone can request to be included, but only **high-quality, real value-add projects** will be considered.
+
+**What we're looking for:**
+- Skills that solve real problems
+- Clean, well-documented code
+- Genuine utility for developers
+- Active maintenance
+
+**Not interested in:**
+- Wrapper skills with no real value
+- Abandoned or unmaintained projects
+- Low-effort submissions
+
+### How to Submit
+
+1. Open an [issue](https://github.com/numman-ali/n-skills/issues) with your skill details
+2. Explain what it does and why it's valuable
+3. If approved, submit a PR following [CONTRIBUTING.md](CONTRIBUTING.md)
+
+Or DM me on X: [@nummanali](https://x.com/nummanali)
+
+---
+
 ## 🌐 Universal Compatibility
 
 n-skills works everywhere because we use open standards:
@@ -159,31 +184,6 @@ n-skills/
     ├── cross-platform.md    # Multi-agent compatibility
     └── categories.md        # Category guidelines
 ```
-
----
-
-## 🎯 Want to be Featured?
-
-This is a **curated** marketplace. Anyone can request to be included, but only **high-quality, real value-add projects** will be considered.
-
-**What we're looking for:**
-- Skills that solve real problems
-- Clean, well-documented code
-- Genuine utility for developers
-- Active maintenance
-
-**Not interested in:**
-- Wrapper skills with no real value
-- Abandoned or unmaintained projects
-- Low-effort submissions
-
-### How to Submit
-
-1. Open an [issue](https://github.com/numman-ali/n-skills/issues) with your skill details
-2. Explain what it does and why it's valuable
-3. If approved, submit a PR following [CONTRIBUTING.md](CONTRIBUTING.md)
-
-Or DM me on X: [@nummanali](https://x.com/nummanali)
 
 ---
 
