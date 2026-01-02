@@ -8,6 +8,24 @@
   },
   "plugins": [
     {
+      "name": "dev-browser",
+      "description": "Browser automation with persistent page state. Use when users ask to navigate websites, fill forms, take screenshots, extract web data, test web apps, or automate browser workflows.",
+      "source": "./skills/automation/dev-browser",
+      "skills": [
+        "./skills/automation/dev-browser"
+      ],
+      "strict": false
+    },
+    {
+      "name": "gastown",
+      "description": "Multi-agent orchestrator for Claude Code. Use when user mentions gastown, gas town, gt commands, convoys, polecats, rigs, slinging work, multi-agent coordination, beads, hooks, the witness, the mayor, the refinery, or wants to run multiple AI agents on projects simultaneously.",
+      "source": "./skills/tools/gastown",
+      "skills": [
+        "./skills/tools/gastown"
+      ],
+      "strict": false
+    },
+    {
       "name": "zai-cli",
       "description": "Z.AI vision, search, reader, and GitHub exploration via MCP",
       "source": "./skills/tools/zai-cli",
@@ -15,24 +33,11 @@
         "./skills/tools/zai-cli"
       ],
       "strict": false
-    },
-    {
-      "name": "dev-browser",
-      "description": "Browser automation with persistent page state. Use when users ask to navigate websites, fill forms, take screenshots, extract web data, test web apps, or automate browser workflows.",
-      "source": "./skills/automation/dev-browser",
-      "skills": [
-        "./skills/automation/dev-browser"
-      ],
-      "strict": false,
-      "upstream": {
-        "repo": "SawyerHood/dev-browser",
-        "path": "skills/dev-browser"
-      }
     }
   ],
   "metadata": {
-    "version": "1.0.0",
-    "generated_at": "2026-01-02T15:54:18.634Z",
-    "skill_count": 2
+    "version": "1.0.1",
+    "generated_at": "2026-01-02T22:45:00.000Z",
+    "skill_count": 3
   }
 }
