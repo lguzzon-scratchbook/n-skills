@@ -22,6 +22,13 @@ Invoke skills using: `openskills read <skill-name>`
 <available_skills>
 
 <skill>
+<name>zai-cli</name>
+<description>Z.AI vision, search, reader, and GitHub exploration via MCP</description>
+<location>skills/tools/zai-cli</location>
+<invoke>openskills read zai-cli</invoke>
+</skill>
+
+<skill>
 <name>dev-browser</name>
 <description>Browser automation with persistent page state. Use when users ask to navigate websites, fill forms, take screenshots, extract web data, test web apps, or automate browser workflows.</description>
 <location>skills/automation/dev-browser</location>
@@ -35,63 +42,20 @@ Invoke skills using: `openskills read <skill-name>`
 <invoke>openskills read gastown</invoke>
 </skill>
 
-<skill>
-<name>zai-cli</name>
-<description>Z.AI vision, search, reader, and GitHub exploration via MCP</description>
-<location>skills/tools/zai-cli</location>
-<invoke>openskills read zai-cli</invoke>
-</skill>
-
 </available_skills>
 
 ## Categories
 
+### tools
+- **zai-cli**: Z.AI vision, search, reader, and GitHub exploration via MCP
+- **gastown**: Multi-agent orchestrator for Claude Code
+
 ### automation
 - **dev-browser**: Browser automation with persistent page state
-
-### tools
-- **gastown**: Multi-agent orchestrator for Claude Code
-- **zai-cli**: Z.AI vision, search, reader, and GitHub exploration via MCP
 
 ## Attribution
 
 Skills may be sourced from external repositories. Check each skill's `.source.json` for attribution.
-
----
-
-## Maintainer Notes: Plugin Structure
-
-When adding skills to `.claude-plugin/marketplace.json`, follow this pattern:
-
-```json
-{
-  "name": "skill-name",
-  "description": "...",
-  "source": "./",
-  "skills": ["./skills/category/skill-name"],
-  "strict": false
-}
-```
-
-**Critical rules:**
-- `source` must be `"./"` (repo root) — NOT the skill folder path
-- `skills` array contains paths relative to `source` (i.e., relative to repo root)
-- Each skill folder must contain a `SKILL.md` with proper frontmatter
-
-**Common mistake to avoid:**
-```json
-// WRONG - causes "skills path not found" error
-{
-  "source": "./skills/tools/gastown",
-  "skills": ["./skills/tools/gastown"]  // This looks for gastown/skills/tools/gastown
-}
-
-// CORRECT
-{
-  "source": "./",
-  "skills": ["./skills/tools/gastown"]  // This finds skills/tools/gastown from root
-}
-```
 
 ---
 
