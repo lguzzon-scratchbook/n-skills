@@ -178,9 +178,7 @@ for (const skill of sources.skills || []) {
     mkdirSync(dirname(targetPath), { recursive: true });
 
     // Copy files
-    const syncConfig = skill.sync || {};
     const includes = syncConfig.include || null;
-    const excludes = syncConfig.exclude || ["node_modules/", "*.lock", "bun.lock", "tmp/"];
 
     if (includes) {
       // Copy specific files/folders
